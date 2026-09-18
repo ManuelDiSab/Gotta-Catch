@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+:root {
+    /* Palette "Pokedex Tech" — nero HUD, rosso scanner, verde terminale */
+    --ink: #0a0d0f;
+    --panel: #0f1617;
+    --paper: #eef4f1;
+    --muted: #85978f;
+    --line: rgba(61, 220, 151, .18);
+    --lime: #3ddc97;
+    --coral: #ee3b3b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+}
+
+body {
+    margin: 0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--font-geist-sans), sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* container del logo in SiteHeader */
+.logo-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+}
+
+/* Scritta nel logo - Gotta Catch */
+.wordmark {
+    font-family: 'Inter', 'SF Pro Display', system-ui, -apple-system, sans-serif;
+    /* Modern technical sans-serif */
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-style: normal;
+    /* No italic text */
+}
+
+.word-gotta {
+    color: #F3F4F6;
+    /* Off-white */
+}
+
+.word-catch {
+    color: #34D399;
+    /* Mint green */
+}
+
+
+.mobile-menu-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 24px;
+}
+
+/* Stile per titoli e altro */
+.eyebrow {
+    color: var(--lime);
+    font-size: 10px;
+    font-weight: 650;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+.menu-close {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--paper);
+    cursor: pointer;
+    font-size: 23px;
+    line-height: 1;
+}
+
+.menu-close:hover {
+    border-color: var(--lime);
+    color: var(--lime);
+}
+
+@keyframes menu-in {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes evolution-card-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px) scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.evolution-card {
+    animation: evolution-card-in .35s ease-out both;
+}
+
+
+
+
+/* Testo in stile monospaziato "da terminale" per dati/numeri */
+.font-hud {
+    font-family: var(--font-geist-mono), monospace;
+    letter-spacing: .06em;
+}
+
+/* Classe per il loader a forma di pokeball */
+.capture-loader {
+    --loader-size: 52px;
+    position: relative;
+    display: grid;
+    width: var(--loader-size);
+    aspect-ratio: 1;
+    color: var(--lime);
+    place-items: center;
+}
+
+.capture-loader--inline {
+    --loader-size: 16px;
+    flex: 0 0 var(--loader-size);
+}
+
+.capture-loader--panel {
+    gap: 14px;
+    width: max-content;
+    min-width: 160px;
+}
+
+.capture-loader__ring,
+.capture-loader__scan,
+.capture-loader__core {
+    position: absolute;
+    display: block;
+}
+
+.capture-loader__ring {
+    inset: 2px;
+    border: 2px solid color-mix(in srgb, currentColor 28%, transparent);
+    border-right-color: currentColor;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: capture-loader-spin 900ms linear infinite;
+}
+
+.capture-loader__scan {
+    right: 4px;
+    left: 4px;
+    height: 2px;
+    background: currentColor;
+    box-shadow: 0 0 10px color-mix(in srgb, currentColor 70%, transparent);
+}
+
+.capture-loader__core {
+    width: 14px;
+    aspect-ratio: 1;
+    border: 2px solid var(--ink);
+    border-radius: 50%;
+    background: var(--paper);
+    box-shadow: 0 0 0 2px currentColor, 0 0 14px currentColor;
+    animation: capture-loader-pulse 1s ease-in-out infinite;
+}
+
+.capture-loader__label {
+    position: absolute;
+    top: calc(100% + 14px);
+    width: max-content;
+    max-width: 220px;
+    color: var(--muted);
+    font-family: var(--font-geist-mono), monospace;
+    font-size: 10px;
+    letter-spacing: .06em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+@keyframes capture-loader-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes capture-loader-pulse {
+    50% {
+        opacity: .65;
+        transform: scale(.78);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .capture-loader__ring,
+    .capture-loader__core {
+        animation: none;
+    }
+}

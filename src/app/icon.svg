@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="none">
+  <!-- Cerchio esterno -->
+  <circle cx="12" cy="12" r="10" stroke="#3ddc97" stroke-width="2" />
+  
+  <!-- Linea centrale interrotta dal bottone -->
+  <path d="M2 12h8m4 0h8" stroke="#3ddc97" stroke-width="2" stroke-linecap="round" />
+  
+  <!-- Bottone centrale -->
+  <circle cx="12" cy="12" r="3" stroke="#3ddc97" stroke-width="2" fill="#ffffff" />
+</svg>
