@@ -7,7 +7,6 @@ import { getRandomPokemon } from '@/lib/api/pokemon'
 import { getTypeColor } from '@/lib/utils/format'
 import { pickLocalizedText } from '@/lib/i18n/pickLocalizedTExt'
 import { useTranslation } from '../lib/i18n/useTranslation'
-import CallToAction from './_components/CallToAction'
 import PokemonCard from './pokedex/_components/PokemonCard'
 
 export default function Home () {
