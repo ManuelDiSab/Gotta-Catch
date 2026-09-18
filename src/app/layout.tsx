@@ -19,8 +19,11 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'Gotta Catch | Field guide',
-  description: 'A living field guide to the Pokemon world.'
+  title: 'Gotta Catch',
+  description: 'A living field guide to the Pokemon world.',
+  verification: {
+    google: 'A3RGBl6T09P8eG-FUkzulD5qvNeqQDu8mOnfRe3PLK4'
+  }
 }
 
 export default async function RootLayout ({

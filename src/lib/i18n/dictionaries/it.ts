@@ -55,6 +55,11 @@ export const it = {
         gameCtaTitle: 'Who\'s that Pokémon?',
         gameCtaDescription: 'Metti alla prova il tuo occhio da Allenatore. Nuove sfide sono in arrivo.',
         comingSoon: 'In costruzione',
+        loading: 'Caricamento Pokémon...',
+        noResults: 'Nessun risultato per questa ricerca.',
+        loadMore: 'Carica altri pokemon',
+        loadingMore: 'Caricamento...',
+        backToTopAriaLabel: 'Torna in cima',
 
     },
     pokedex: {

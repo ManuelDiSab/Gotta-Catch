@@ -8,8 +8,8 @@ import LoadingIndicator from '../../components/LoadingIndicator'
 import PokemonCard from './_components/PokemonCard'
 import { getPokemonList } from '../../lib/api/pokemon'
 import { IPokemonCard } from '../../interfaces/IPokemon.interface'
-import { useTranslation } from '../../lib/i18n/useTranslation'
 import SearchBar from '@/components/searchBar/SearchBar'
+import { useTranslation } from '@/lib/i18n/useTranslation'
 import {
   PokemonFilters,
   PokemonFilterValue
@@ -54,8 +54,8 @@ export default function PokedexPage () {
     rarity: 'all',
     sort: 'order-asc'
   })
-  const search = searchParams.get('search')?.trim() ?? ''
 
+  const search = searchParams.get('search')?.trim() ?? ''
   useEffect(() => {
     async function loadPokemonData () {
       try {
@@ -107,9 +107,6 @@ export default function PokedexPage () {
       >
         <div className='mb-8 flex items-end justify-between gap-5 border-b border-(--line) pb-5 max-[800px]:mb-6 max-[800px]:items-stretch max-[800px]:flex-col'>
           <div>
-            <p className='font-hud text-[10px] uppercase text-(--lime)'>
-              Field archive
-            </p>
             <div className='mt-2 flex items-baseline gap-3'>
               <h1 className='text-3xl font-semibold uppercase tracking-wide'>
                 Pokédex
@@ -152,9 +149,7 @@ export default function PokedexPage () {
           <div className='my-[10vh] text-center'>
             <Button
               buttonProps={{
-                label: isFetchingMore
-                  ? t('home.loadingMore')
-                  : t('home.loadMore'),
+                label: isFetching ? t('home.loadingMore') : t('home.loadMore'),
                 category: 'primary',
                 onClick: loadMorePokemon
               }}
