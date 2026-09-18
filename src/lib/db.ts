@@ -4,10 +4,9 @@ import mongoose from 'mongoose'
 const DB_HOST = process.env.DB_HOST
 
 if (!DB_HOST) {
-    throw new Error('Definisci la variabile MONGODB_URI nel file .env.local')
+    throw new Error('Definisci la variabile DB_HOST nel file .env.local')
 }
 
-// 1. Dichiariamo il tipo per evitare l'errore 'any' su globalThis
 interface MongooseCache {
     conn: typeof mongoose | null
     promise: Promise<typeof mongoose> | null

@@ -1,7 +1,13 @@
 import { NextResponse } from 'next/server'
-import Pokemon from '@/models/pokemon.model';
+import mongoose from 'mongoose';
+import connectDB from '@/lib/db';
 export async function GET() {
     try {
+
+        await connectDB()
+        // Recupero il modello direttamente da mongoose per sicurezza nelle funzioni serverless 
+        const Pokemon = mongoose.models.Pokemon || mongoose.model('Pokemon');
+
         // Non lo mett nel service per la sua semplicità
         const randomId = Math.floor(Math.random() * 1351) + 1;
         const res = await Pokemon.findOne({ id: randomId })
